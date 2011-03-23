@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ProcessOrquestratorUserManager" targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        
+        <schema targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager">
+            <complexType name='AddUserRequestType'>
+                 <sequence>
+                  <element minOccurs='0' name='username' type='string'/>
+                  <element minOccurs='0' name='password' type='string'/>
+                  <element minOccurs='0' name='email' type='string'/>
+                  <element minOccurs='0' name='address' type='string'/>
+                 </sequence>
+            </complexType>
+
+        <complexType name='AddUserResponseType'>
+         <sequence/>
+        </complexType>
+
+            <complexType name="LoginUserRequestType">
+                <sequence>
+                    <element name="username" type="string"></element>
+                    <element name="password" type="string"></element>
+                </sequence>
+            </complexType>
+            
+            <element name="LoginUserRequest" type="tns:LoginUserRequestType"></element>
+            <element name="AddUserResponse" type="tns:AddUserResponseType"></element>
+            <complexType name="UserExistsResponseType">
+                <sequence>
+                    <element name="UserExistsResponse" type="boolean"></element>
+                </sequence>
+            </complexType>
+            <element name="UserExistsResponse" type="tns:UserExistsResponseType"></element>
+        </schema>
+    </types>
+    <message name="AddUserOperationRequest">
+        <part name="username" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+        <part name="email" type="xsd:string"/>
+        <part name="address" type="xsd:string"/>
+    </message>
+    <message name="AddUserOperationResponse">
+        <part name="AddUserOperationResponse" type="tns:AddUserResponseType"/>
+    </message>
+    <message name="LoginUserOperationRequest">
+        <part name="username" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="LoginUserOperationResponse">
+        <part name="LoginUserOperationResponse" type="xsd:int"/>
+    </message>
+    <message name="UserExistsOperationRequest">
+        <part name="username" type="xsd:string"/>
+    </message>
+    <message name="UserExistsOperationResponse">
+        <part name="UserExistsOperationResponse" type="tns:UserExistsResponseType"/>
+    </message>
+    <portType name="AddUserPortType">
+        <operation name="AddUserOperation">
+            <input name="input1" message="tns:AddUserOperationRequest"/>
+            <output name="output1" message="tns:AddUserOperationResponse"/>
+        </operation>
+    </portType>
+    <portType name="LoginUserPortType">
+        <operation name="LoginUserOperation">
+            <input name="input1" message="tns:LoginUserOperationRequest"/>
+            <output name="output1" message="tns:LoginUserOperationResponse"/>
+        </operation>
+    </portType>
+    <portType name="UserExistsPortType">
+        <operation name="UserExistsOperation">
+            <input name="input1" message="tns:UserExistsOperationRequest"/>
+            <output name="output1" message="tns:UserExistsOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="AddUserBinding" type="tns:AddUserPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="AddUserOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="LoginUserBinding" type="tns:LoginUserPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="LoginUserOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="UserExistBinding" type="tns:UserExistsPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="UserExistsOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ProcessOrquestratorUserManagerService">
+        <port name="AddUserPort" binding="tns:AddUserBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorUserManagerService/AddUserPort"/>
+        </port>
+        <port name="LoginUserPort" binding="tns:LoginUserBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorUserManagerService/LoginUserPort"/>
+        </port>
+        <port name="UserExistsPort" binding="tns:UserExistBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorUserManagerService/UserExistsPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="AddUserPartnerLink">
+        <plnk:role name="AddUserPortTypeRole" portType="tns:AddUserPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="LoginUserPartnerLink">
+        <plnk:role name="LoginUserPortTypeRole" portType="tns:LoginUserPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="UserExistsPartnerLink">
+        <plnk:role name="UserExistsPortTypeRole" portType="tns:UserExistsPortType"/>
+    </plnk:partnerLinkType>
+</definitions>

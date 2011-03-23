@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j2ee:application version="1.4" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd ">
+     <j2ee:display-name>CameraSupplierWS</j2ee:display-name>
+      <j2ee:module>
+         <j2ee:web>
+            <j2ee:web-uri>CameraSupplierWS.jar</j2ee:web-uri>
+            <j2ee:context-root>/CameraSupplierWS</j2ee:context-root>
+         </j2ee:web>
+      </j2ee:module>
+      <j2ee:module>
+         <j2ee:ejb>jdom.jar</j2ee:ejb>
+      </j2ee:module>
+</j2ee:application>

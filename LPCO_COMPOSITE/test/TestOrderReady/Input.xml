@@ -1,0 +1,12 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager">
+  <soapenv:Body>
+    <proc:OrderReadyOperation>
+      <OrderReadyOperationRequest>
+        <proc:OrderReadyRequest>
+          <orderID>55</orderID>
+          <deliveringDays>5</deliveringDays>
+        </proc:OrderReadyRequest>
+      </OrderReadyOperationRequest>
+    </proc:OrderReadyOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

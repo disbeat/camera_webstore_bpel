@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ProcessOrchestratorOrdersManager" targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager">
+            <xsd:complexType name='orderToShip'>
+                <xsd:sequence>
+                        <xsd:element maxOccurs='unbounded' minOccurs='0' name='cameras' nillable='true' type='xsd:string'/>
+                            <xsd:element minOccurs='0' name='clientAddress' type='xsd:string'/>
+                            <xsd:element minOccurs='0' name='clientName' type='xsd:string'/>
+                            <xsd:element name='orderID' type='xsd:int'/>
+                            <xsd:element maxOccurs='unbounded' minOccurs='0' name='quantities' nillable='true' type='xsd:int'/>
+                    </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name='cart'>
+                <xsd:sequence>
+                        <xsd:element name='clientID' type='xsd:int'/>
+                            <xsd:element maxOccurs='unbounded' minOccurs='0' name='orderItems' nillable='true' type='tns:orderItem'/>
+                    </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name='orderItem'>
+                <xsd:sequence>
+                        <xsd:element name='cameraID' type='xsd:int'/>
+                            <xsd:element minOccurs='0' name='cameraName' type='xsd:string'/>
+                            <xsd:element name='price' type='xsd:float'/>
+                            <xsd:element name='qtd' type='xsd:int'/>
+                    </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name='order'>
+                <xsd:sequence>
+                        <xsd:element minOccurs='0' name='deliveringDays' type='xsd:int'/>
+                        <xsd:element minOccurs='0' name='id' type='xsd:int'/>
+                        <xsd:element maxOccurs='unbounded' minOccurs='0' name='orderItems' nillable='true' type='tns:orderItem'/>
+                        <xsd:element minOccurs='0' name='status' type='xsd:int'/>
+                        <xsd:element minOccurs='0' name='time' type='xsd:dateTime'/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetOrdersOfUserResponse">
+                <xsd:sequence>
+                    <xsd:element name="Orders" type="tns:order" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CheckOutResponseType">
+                <xsd:sequence></xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="GetOrdersOfUserResponse" type="tns:GetOrdersOfUserResponse"></xsd:element>
+            <xsd:element name="CheckOutRequest" type="tns:cart"></xsd:element>
+            <xsd:element name="CheckOutResponse" type="tns:CheckOutResponseType"></xsd:element>
+            <xsd:element name="ShipOrderRequest" type="tns:orderToShip"></xsd:element>
+            <xsd:element name="ShipOrderResponse" type="tns:ShipOrderResponseType"></xsd:element>
+            <xsd:element name="CreditCardExceptionMessage" type="xsd:string"></xsd:element>
+            <xsd:complexType name="ShipOrderResponseType">
+                <xsd:sequence/>
+            </xsd:complexType>
+            <xsd:complexType name="OrderItemList">
+                <xsd:sequence>
+                    <xsd:element name="orderItem" type="tns:orderItem" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="NoOrdersExceptionMessage" type="xsd:string"></xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="GetOrdersOfUserOperationRequest">
+        <part name="userID" type="xsd:int"/>
+    </message>
+    <message name="GetOrdersOfUserOperationResponse">
+        <part name="GetOrdersOfUserOperationResponse" type="tns:GetOrdersOfUserResponse"/>
+    </message>
+    <message name="CheckOutOperationRequest">
+        <part name="userID" type="xsd:int"/>
+        <part name="orderItems" type="tns:OrderItemList"/>
+    </message>
+    <message name="CheckOutOperationResponse">
+        <part name="CheckOutOperationResponse" type="tns:ShipOrderResponseType"/>
+    </message>
+    <message name="CheckOutOperationFault">
+        <part name="message" element="tns:CreditCardExceptionMessage"/>
+    </message>
+    <message name="OrderReadyOperationRequest">
+        <part name="orderID" type="xsd:int"/>
+        <part name="deliveringDays" type="xsd:int"/>
+    </message>
+    <message name="OrderReadyOperationResponse">
+        <part name="NotificationSent" type="xsd:boolean"/>
+    </message>
+    <message name="GetOrdersOfUserOperationFault">
+        <part name="NoOrdersException" element="tns:NoOrdersExceptionMessage"/>
+    </message>
+    <portType name="GetOrdersOfUserPortType">
+        <operation name="GetOrdersOfUserOperation">
+            <input name="input1" message="tns:GetOrdersOfUserOperationRequest"/>
+            <output name="output1" message="tns:GetOrdersOfUserOperationResponse"/>
+            <fault name="fault1" message="tns:GetOrdersOfUserOperationFault"/>
+        </operation>
+    </portType>
+    <portType name="CheckOutPortType">
+        <operation name="CheckOutOperation">
+            <input name="input1" message="tns:CheckOutOperationRequest"/>
+            <output name="output1" message="tns:CheckOutOperationResponse"/>
+            <fault name="fault1" message="tns:CheckOutOperationFault"/>
+        </operation>
+    </portType>
+    <portType name="OrderReadyPortType">
+        <operation name="OrderReadyOperation">
+            <input name="input1" message="tns:OrderReadyOperationRequest"/>
+            <output name="output1" message="tns:OrderReadyOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="GetOrdersOfUserBinding" type="tns:GetOrdersOfUserPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetOrdersOfUserOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1"/>
+            </fault>
+        </operation>
+    </binding>
+    <binding name="CheckOutBinding" type="tns:CheckOutPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="CheckOutOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <binding name="OrderReadyBinding" type="tns:OrderReadyPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="OrderReadyOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ProcessOrchestratorOrdersManagerService">
+        <port name="GetOrdersOfUserPort" binding="tns:GetOrdersOfUserBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorOrdersManagerService/GetOrdersOfUserPort"/>
+        </port>
+        <port name="CheckOutPort" binding="tns:CheckOutBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorOrdersManagerService/CheckOutPort"/>
+        </port>
+        <port name="OrderReadyPort" binding="tns:OrderReadyBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorOrdersManagerService/OrderReadyPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="GetOrdersOfUserPartnerLink">
+        <plnk:role name="GetOrdersOfUserPortTypeRole" portType="tns:GetOrdersOfUserPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="CheckOutPartnerLink">
+        <plnk:role name="CheckOutPortTypeRole" portType="tns:CheckOutPortType"/>
+    </plnk:partnerLinkType>    
+    <plnk:partnerLinkType name="OrderReadyPartnerLink">
+        <plnk:role name="OrderReadyPortTypeRole" portType="tns:OrderReadyPortType"/>
+    </plnk:partnerLinkType>
+</definitions>

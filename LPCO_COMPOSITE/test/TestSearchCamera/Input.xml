@@ -1,0 +1,11 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+  <soapenv:Body>
+    <proc:SearchCameraOperation>
+      <SearchCameraOperationRequest>
+        <proc:SearchCameraRequest>
+          <query>canona</query>
+        </proc:SearchCameraRequest>
+      </SearchCameraOperationRequest>
+    </proc:SearchCameraOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

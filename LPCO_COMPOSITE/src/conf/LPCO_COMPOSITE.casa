@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="www.usermanagerws.com" xmlns:ns10="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetCamera" xmlns:ns11="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetCameras" xmlns:ns12="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera" xmlns:ns13="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/CheckOut" xmlns:ns14="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetOrdersOfUser" xmlns:ns15="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/OrderReady" xmlns:ns16="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/AddUser" xmlns:ns17="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/LoginUser" xmlns:ns18="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/UserExists" xmlns:ns2="www.catalogmanagerws.com" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" xmlns:ns4="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" xmlns:ns5="www.camerasupplierws.com" xmlns:ns6="www.ordersmanagerws.com" xmlns:ns7="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns8="www.shippingdepartmentws.com" xmlns:ns9="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetAllBrands" xmlns:xlink="http://www.w3.org/2000/xlink">
+    <endpoints>
+        <endpoint endpoint-name="UserManagerPort" interface-name="ns1:UserManager" name="endpoint1" service-name="ns1:UserManagerService"/>
+        <endpoint endpoint-name="CatalogManagerPort" interface-name="ns2:CatalogManager" name="endpoint2" service-name="ns2:CatalogManagerService"/>
+        <endpoint endpoint-name="GetAllBrandsPort" interface-name="ns3:GetAllBrandsPortType" name="endpoint3" service-name="ns3:ProcessOrchestratorCatalogManagerService"/>
+        <endpoint endpoint-name="GetCamerasPort" interface-name="ns3:GetCamerasPortType" name="endpoint4" service-name="ns3:ProcessOrchestratorCatalogManagerService"/>
+        <endpoint endpoint-name="GetCameraPort" interface-name="ns3:GetCameraPortType" name="endpoint5" service-name="ns3:ProcessOrchestratorCatalogManagerService"/>
+        <endpoint endpoint-name="LoginUserPort" interface-name="ns4:LoginUserPortType" name="endpoint6" service-name="ns4:ProcessOrquestratorUserManagerService"/>
+        <endpoint endpoint-name="AddUserPort" interface-name="ns4:AddUserPortType" name="endpoint7" service-name="ns4:ProcessOrquestratorUserManagerService"/>
+        <endpoint endpoint-name="UserExistsPort" interface-name="ns4:UserExistsPortType" name="endpoint8" service-name="ns4:ProcessOrquestratorUserManagerService"/>
+        <endpoint endpoint-name="CameraSearchPort" interface-name="ns5:CameraSearch" name="endpoint9" service-name="ns5:CameraSearchService"/>
+        <endpoint endpoint-name="SearchCameraPort" interface-name="ns3:SearchCameraPortType" name="endpoint10" service-name="ns3:ProcessOrchestratorCatalogManagerService"/>
+        <endpoint endpoint-name="OrdersManagerPort" interface-name="ns6:OrdersManager" name="endpoint11" service-name="ns6:OrdersManagerService"/>
+        <endpoint endpoint-name="GetOrdersOfUserPort" interface-name="ns7:GetOrdersOfUserPortType" name="endpoint12" service-name="ns7:ProcessOrchestratorOrdersManagerService"/>
+        <endpoint endpoint-name="CheckOutPort" interface-name="ns7:CheckOutPortType" name="endpoint13" service-name="ns7:ProcessOrchestratorOrdersManagerService"/>
+        <endpoint endpoint-name="ShippingBeanPort" interface-name="ns8:ShippingBean" name="endpoint14" service-name="ns8:ShippingBeanService"/>
+        <endpoint endpoint-name="OrderReadyPort" interface-name="ns7:OrderReadyPortType" name="endpoint15" service-name="ns7:ProcessOrchestratorOrdersManagerService"/>
+        <endpoint display-name="POCatalogManagerPL" endpoint-name="GetAllBrandsPortTypeRole_myRole" file-path="CatalogManager\GetAllBrands.bpel" interface-name="ns3:GetAllBrandsPortType" name="endpoint16" process-name="GetAllBrands" service-name="ns9:POCatalogManagerPL"/>
+        <endpoint display-name="POCatalogManagerPL" endpoint-name="GetCameraPortTypeRole_myRole" file-path="CatalogManager\GetCamera.bpel" interface-name="ns3:GetCameraPortType" name="endpoint17" process-name="GetCamera" service-name="ns10:POCatalogManagerPL"/>
+        <endpoint display-name="POCatalogManagerPL" endpoint-name="GetCamerasPortTypeRole_myRole" file-path="CatalogManager\GetCameras.bpel" interface-name="ns3:GetCamerasPortType" name="endpoint18" process-name="GetCameras" service-name="ns11:POCatalogManagerPL"/>
+        <endpoint display-name="POCatalogManagerPL" endpoint-name="SearchCameraPortTypeRole_myRole" file-path="CatalogManager\SearchCamera.bpel" interface-name="ns3:SearchCameraPortType" name="endpoint19" process-name="SearchCamera" service-name="ns12:POCatalogManagerPL"/>
+        <endpoint display-name="POOrdersManagerPL" endpoint-name="CheckOutPortTypeRole_myRole" file-path="OrdersManager\CheckOut.bpel" interface-name="ns7:CheckOutPortType" name="endpoint20" process-name="CheckOut" service-name="ns13:POOrdersManagerPL"/>
+        <endpoint display-name="POOrdersManagerPL" endpoint-name="GetOrdersOfUserPortTypeRole_myRole" file-path="OrdersManager\GetOrdersOfUser.bpel" interface-name="ns7:GetOrdersOfUserPortType" name="endpoint21" process-name="GetOrdersOfUser" service-name="ns14:POOrdersManagerPL"/>
+        <endpoint display-name="POOrdersManagerPL" endpoint-name="OrderReadyPortTypeRole_myRole" file-path="OrdersManager\OrderReady.bpel" interface-name="ns7:OrderReadyPortType" name="endpoint22" process-name="OrderReady" service-name="ns15:POOrdersManagerPL"/>
+        <endpoint display-name="POUserManagerPL" endpoint-name="AddUserPortTypeRole_myRole" file-path="UserManager\AddUser.bpel" interface-name="ns4:AddUserPortType" name="endpoint23" process-name="AddUser" service-name="ns16:POUserManagerPL"/>
+        <endpoint display-name="POUserManagerPL" endpoint-name="LoginUserPortTypeRole_myRole" file-path="UserManager\LoginUser.bpel" interface-name="ns4:LoginUserPortType" name="endpoint24" process-name="LoginUser" service-name="ns17:POUserManagerPL"/>
+        <endpoint display-name="POUserManagerPL" endpoint-name="UserExistsPortTypeRole_myRole" file-path="UserManager\UserExists.bpel" interface-name="ns4:UserExistsPortType" name="endpoint25" process-name="UserExists" service-name="ns18:POUserManagerPL"/>
+        <endpoint display-name="CatalogManagerPL" endpoint-name="CatalogManagerRole_partnerRole" file-path="CatalogManager\GetAllBrands.bpel" interface-name="ns2:CatalogManager" name="endpoint26" process-name="GetAllBrands" service-name="ns9:CatalogManagerPL"/>
+        <endpoint display-name="CatalogManagerPL" endpoint-name="CatalogManagerRole_partnerRole" file-path="CatalogManager\GetCamera.bpel" interface-name="ns2:CatalogManager" name="endpoint27" process-name="GetCamera" service-name="ns10:CatalogManagerPL"/>
+        <endpoint display-name="CatalogManagerPL" endpoint-name="CatalogManagerRole_partnerRole" file-path="CatalogManager\GetCameras.bpel" interface-name="ns2:CatalogManager" name="endpoint28" process-name="GetCameras" service-name="ns11:CatalogManagerPL"/>
+        <endpoint display-name="CameraSearchPL" endpoint-name="CameraSearchRole_partnerRole" file-path="CatalogManager\SearchCamera.bpel" interface-name="ns5:CameraSearch" name="endpoint29" process-name="SearchCamera" service-name="ns12:CameraSearchPL"/>
+        <endpoint display-name="CatalogManagerPL" endpoint-name="CatalogManagerRole_partnerRole" file-path="CatalogManager\SearchCamera.bpel" interface-name="ns2:CatalogManager" name="endpoint30" process-name="SearchCamera" service-name="ns12:CatalogManagerPL"/>
+        <endpoint display-name="OrdersManagerPL" endpoint-name="OrdersManagerRole_partnerRole" file-path="OrdersManager\CheckOut.bpel" interface-name="ns6:OrdersManager" name="endpoint31" process-name="CheckOut" service-name="ns13:OrdersManagerPL"/>
+        <endpoint display-name="ShippingBeanPL" endpoint-name="ShippingBeanRole_partnerRole" file-path="OrdersManager\CheckOut.bpel" interface-name="ns8:ShippingBean" name="endpoint32" process-name="CheckOut" service-name="ns13:ShippingBeanPL"/>
+        <endpoint display-name="OrdersManagerPL" endpoint-name="OrdersManagerRole_partnerRole" file-path="OrdersManager\GetOrdersOfUser.bpel" interface-name="ns6:OrdersManager" name="endpoint33" process-name="GetOrdersOfUser" service-name="ns14:OrdersManagerPL"/>
+        <endpoint display-name="OrdersManagerPL" endpoint-name="OrdersManagerRole_partnerRole" file-path="OrdersManager\OrderReady.bpel" interface-name="ns6:OrdersManager" name="endpoint34" process-name="OrderReady" service-name="ns15:OrdersManagerPL"/>
+        <endpoint display-name="UserManagerPL" endpoint-name="UserManagerRole_partnerRole" file-path="UserManager\AddUser.bpel" interface-name="ns1:UserManager" name="endpoint35" process-name="AddUser" service-name="ns16:UserManagerPL"/>
+        <endpoint display-name="UserManagerPL" endpoint-name="UserManagerRole_partnerRole" file-path="UserManager\LoginUser.bpel" interface-name="ns1:UserManager" name="endpoint36" process-name="LoginUser" service-name="ns17:UserManagerPL"/>
+        <endpoint display-name="UserManagerPL" endpoint-name="UserManagerRole_partnerRole" file-path="UserManager\UserExists.bpel" interface-name="ns1:UserManager" name="endpoint37" process-name="UserExists" service-name="ns18:UserManagerPL"/>
+    </endpoints>
+    <service-units>
+        <service-engine-service-unit artifacts-zip="LPCO_BPEL_MODULE.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="LPCO_COMPOSITE-LPCO_BPEL_MODULE" unit-name="LPCO_BPEL_MODULE" unknown="false" x="126" y="99">
+            <provides endpoint="endpoint16"/>
+            <provides endpoint="endpoint17"/>
+            <provides endpoint="endpoint18"/>
+            <provides endpoint="endpoint19"/>
+            <provides endpoint="endpoint20"/>
+            <provides endpoint="endpoint21"/>
+            <provides endpoint="endpoint22"/>
+            <provides endpoint="endpoint23"/>
+            <provides endpoint="endpoint24"/>
+            <provides endpoint="endpoint25"/>
+            <consumes endpoint="endpoint26"/>
+            <consumes endpoint="endpoint27"/>
+            <consumes endpoint="endpoint28"/>
+            <consumes endpoint="endpoint29"/>
+            <consumes endpoint="endpoint30"/>
+            <consumes endpoint="endpoint31"/>
+            <consumes endpoint="endpoint32"/>
+            <consumes endpoint="endpoint33"/>
+            <consumes endpoint="endpoint34"/>
+            <consumes endpoint="endpoint35"/>
+            <consumes endpoint="endpoint36"/>
+            <consumes endpoint="endpoint37"/>
+        </service-engine-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="LPCO_COMPOSITE-sun-http-binding" unit-name="sun-http-binding">
+            <ports>
+                <port x="67" y="592">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/service[@name='CameraSearchService']/port[@name='CameraSearchPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint9"/>
+                    <provides endpoint="endpoint9"/>
+                </port>
+                <port x="67" y="1145">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/service[@name='CatalogManagerService']/port[@name='CatalogManagerPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
+                </port>
+                <port x="67" y="434">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/service[@name='OrdersManagerService']/port[@name='OrdersManagerPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint11"/>
+                    <provides endpoint="endpoint11"/>
+                </port>
+                <port x="67" y="1224">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/service[@name='UserManagerService']/port[@name='UserManagerPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint1"/>
+                    <provides endpoint="endpoint1"/>
+                </port>
+                <port x="67" y="355">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/service[@name='ShippingBeanService']/port[@name='ShippingBeanPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint14"/>
+                    <provides endpoint="endpoint14"/>
+                </port>
+                <port x="67" y="1066">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorCatalogManagerService']/port[@name='GetCameraPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint5"/>
+                    <provides endpoint="endpoint5"/>
+                </port>
+                <port x="67" y="987">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorCatalogManagerService']/port[@name='GetAllBrandsPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
+                </port>
+                <port x="67" y="908">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorCatalogManagerService']/port[@name='GetCamerasPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint4"/>
+                    <provides endpoint="endpoint4"/>
+                </port>
+                <port x="67" y="513">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorCatalogManagerService']/port[@name='SearchCameraPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint10"/>
+                    <provides endpoint="endpoint10"/>
+                </port>
+                <port x="67" y="276">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorOrdersManagerService']/port[@name='GetOrdersOfUserPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint12"/>
+                    <provides endpoint="endpoint12"/>
+                </port>
+                <port x="67" y="197">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorOrdersManagerService']/port[@name='CheckOutPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint13"/>
+                    <provides endpoint="endpoint13"/>
+                </port>
+                <port x="67" y="39">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorOrdersManagerService']/port[@name='OrderReadyPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint15"/>
+                    <provides endpoint="endpoint15"/>
+                </port>
+                <port x="67" y="829">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/service[@name='ProcessOrquestratorUserManagerService']/port[@name='AddUserPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint7"/>
+                    <provides endpoint="endpoint7"/>
+                </port>
+                <port x="67" y="750">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/service[@name='ProcessOrquestratorUserManagerService']/port[@name='LoginUserPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint6"/>
+                    <provides endpoint="endpoint6"/>
+                </port>
+                <port x="67" y="671">
+                    <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/service[@name='ProcessOrquestratorUserManagerService']/port[@name='UserExistsPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint8"/>
+                    <provides endpoint="endpoint8"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+    </service-units>
+    <connections>
+        <connection consumer="endpoint32" provider="endpoint14" state="unchanged"/>
+        <connection consumer="endpoint26" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint27" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint28" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint30" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint3" provider="endpoint16" state="unchanged"/>
+        <connection consumer="endpoint4" provider="endpoint18" state="unchanged"/>
+        <connection consumer="endpoint8" provider="endpoint25" state="unchanged"/>
+        <connection consumer="endpoint13" provider="endpoint20" state="unchanged"/>
+        <connection consumer="endpoint5" provider="endpoint17" state="unchanged"/>
+        <connection consumer="endpoint29" provider="endpoint9" state="unchanged"/>
+        <connection consumer="endpoint6" provider="endpoint24" state="unchanged"/>
+        <connection consumer="endpoint7" provider="endpoint23" state="unchanged"/>
+        <connection consumer="endpoint10" provider="endpoint19" state="unchanged"/>
+        <connection consumer="endpoint31" provider="endpoint11" state="unchanged"/>
+        <connection consumer="endpoint33" provider="endpoint11" state="unchanged"/>
+        <connection consumer="endpoint34" provider="endpoint11" state="unchanged"/>
+        <connection consumer="endpoint35" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint36" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint37" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint12" provider="endpoint21" state="unchanged"/>
+        <connection consumer="endpoint15" provider="endpoint22" state="unchanged"/>
+    </connections>
+    <porttypes>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/portType[@name='CameraSearch'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/portType[@name='CatalogManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/portType[@name='OrdersManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/portType[@name='UserManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/portType[@name='ShippingBean'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/portType[@name='GetCameraPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/portType[@name='GetAllBrandsPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/portType[@name='GetCamerasPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/portType[@name='SearchCameraPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/portType[@name='GetOrdersOfUserPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/portType[@name='CheckOutPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/portType[@name='OrderReadyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/portType[@name='AddUserPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/portType[@name='LoginUserPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/portType[@name='UserExistsPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/portType[@name='CameraSearch'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/portType[@name='CatalogManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/portType[@name='OrdersManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/portType[@name='UserManager'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/portType[@name='ShippingBean'])" xlink:type="simple"/>
+    </porttypes>
+    <bindings>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/binding[@name='CameraSearchBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/binding[@name='CatalogManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/binding[@name='OrdersManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/binding[@name='UserManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/binding[@name='ShippingBeanBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/binding[@name='GetCameraBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/binding[@name='GetAllBrandsBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/binding[@name='GetCamerasBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/binding[@name='SearchCameraBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/binding[@name='GetOrdersOfUserBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/binding[@name='CheckOutBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/binding[@name='OrderReadyBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/binding[@name='AddUserBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/binding[@name='LoginUserBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/binding[@name='UserExistBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/binding[@name='CameraSearchBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/binding[@name='CatalogManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/binding[@name='OrdersManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/binding[@name='UserManagerBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/binding[@name='ShippingBeanBinding'])" xlink:type="simple"/>
+    </bindings>
+    <services>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/service[@name='CameraSearchService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/service[@name='CatalogManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/service[@name='OrdersManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/service[@name='UserManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/service[@name='ShippingBeanService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/CatalogManager/ProcessOrchestratorCatalogManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorCatalogManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/OrdersManager/ProcessOrchestratorOrdersManager.wsdl#xpointer(/definitions/service[@name='ProcessOrchestratorOrdersManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/LPCO_BPEL_MODULE/UserManager/ProcessOrquestratorUserManager.wsdl#xpointer(/definitions/service[@name='ProcessOrquestratorUserManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl#xpointer(/definitions/service[@name='CameraSearchService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl#xpointer(/definitions/service[@name='CatalogManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl#xpointer(/definitions/service[@name='OrdersManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl#xpointer(/definitions/service[@name='UserManagerService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/LPCO_BPEL_MODULE/src/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl#xpointer(/definitions/service[@name='ShippingBeanService'])" xlink:type="simple"/>
+    </services>
+    <regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>

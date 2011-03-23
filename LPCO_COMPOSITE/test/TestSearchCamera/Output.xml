@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode xmlns="">SOAP-ENV:Server</faultcode>
+      <faultstring xmlns="">BPCOR-6135: A fault was not handled in the process scope; Fault Name is {http://docs.oasis-open.org/wsbpel/2.0/process/executable}selectionFailure; Fault Data is &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;jbi:message xmlns:sxeh=&amp;quot;http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling&amp;quot; type=&amp;quot;sxeh:faultMessage&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:jbi=&amp;quot;http://java.sun.com/xml/ns/jbi/wsdl-11-wrapper&amp;quot;&amp;gt;&amp;lt;jbi:part&amp;gt;BPCOR-6174: Selection Failure occurred in BPEL({http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera}SearchCamera) at line 41&amp;lt;/jbi:part&amp;gt;&amp;lt;/jbi:message&amp;gt;. Sending errors for the pending requests in the process scope before terminating the process instance</faultstring>
+      <faultactor xmlns="">sun-bpel-engine</faultactor>
+      <detail xmlns="">
+        <detailText>BPCOR-6135: A fault was not handled in the process scope; Fault Name is {http://docs.oasis-open.org/wsbpel/2.0/process/executable}selectionFailure; Fault Data is &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;jbi:message xmlns:sxeh=&amp;quot;http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling&amp;quot; type=&amp;quot;sxeh:faultMessage&amp;quot; version=&amp;quot;1.0&amp;quot; xmlns:jbi=&amp;quot;http://java.sun.com/xml/ns/jbi/wsdl-11-wrapper&amp;quot;&amp;gt;&amp;lt;jbi:part&amp;gt;BPCOR-6174: Selection Failure occurred in BPEL({http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera}SearchCamera) at line 41&amp;lt;/jbi:part&amp;gt;&amp;lt;/jbi:message&amp;gt;. Sending errors for the pending requests in the process scope before terminating the process instance
+   Caused by: BPCOR-6174: Selection Failure occurred in BPEL({http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera}SearchCamera) at line 41
+BPCOR-6129: Line Number is 39
+BPCOR-6130: Activity Name is Assign2</detailText>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

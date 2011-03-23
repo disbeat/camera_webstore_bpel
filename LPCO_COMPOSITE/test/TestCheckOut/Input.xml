@@ -1,0 +1,26 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager">
+  <soapenv:Body>
+    <proc:CheckOutOperation>
+      <CheckOutOperationRequest>
+        <proc:CheckOutRequest>
+          <clientID>2</clientID>
+          <!--Zero or more repetitions:-->
+          <orderItems>
+            <cameraID>4</cameraID>
+            <!--Optional:-->
+            <cameraName>wateva</cameraName>
+            <price>1</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>6</cameraID>
+            <!--Optional:-->
+            <cameraName>wateva</cameraName>
+            <price>1</price>
+            <qtd>4</qtd>
+          </orderItems>
+        </proc:CheckOutRequest>
+      </CheckOutOperationRequest>
+    </proc:CheckOutOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

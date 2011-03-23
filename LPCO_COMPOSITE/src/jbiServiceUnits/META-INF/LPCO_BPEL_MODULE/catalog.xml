@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://127.0.0.1:8080/IS-TP2-EJB/UserManager?wsdl" uri="src/127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl"/>
+    <system systemId="http://127.0.0.1:8080/IS-TP2-EJB/CatalogManager?wsdl" uri="src/127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl"/>
+    <system systemId="http://127.0.0.1:8080/CameraSupplierWS/CameraSearch?wsdl" uri="src/127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl"/>
+    <system systemId="http://127.0.0.1:8080/ShippingDepartmentWS/ShippingBean?wsdl" uri="src/127.0.0.1_8080/ShippingDepartmentWS/ShippingBean.wsdl"/>
+    <system systemId="http://127.0.0.1:8080/IS-TP2-EJB/OrdersManager?wsdl" uri="src/127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl"/>
+</catalog>

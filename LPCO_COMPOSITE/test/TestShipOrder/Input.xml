@@ -1,0 +1,23 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager">
+  <soapenv:Body>
+    <proc:ShipOrderOperation>
+      <ShipOrderOperationRequest>
+        <proc:ShipOrderRequest>
+          <!--Zero or more repetitions:-->
+          <cameras>Camera1</cameras>
+          <cameras>Camera2</cameras>
+          <cameras>Camera3</cameras>
+          <!--Optional:-->
+          <clientAddress>Rua do Adro Velho nº21 Coimbra</clientAddress>
+          <!--Optional:-->
+          <clientName>Mr. Smith</clientName>
+          <orderID>56</orderID>
+          <!--Zero or more repetitions:-->
+          <quantities>2</quantities>
+          <quantities>3</quantities>
+          <quantities>4</quantities>
+        </proc:ShipOrderRequest>
+      </ShipOrderOperationRequest>
+    </proc:ShipOrderOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

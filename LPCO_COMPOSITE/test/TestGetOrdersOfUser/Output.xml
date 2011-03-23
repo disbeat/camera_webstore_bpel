@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:GetOrdersOfUserOperationResponse xmlns:m="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager">
+      <GetOrdersOfUserOperationResponse xmlns="">
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>15</id>
+          <orderItems>
+            <cameraID>1</cameraID>
+            <cameraName>Canon EOS-1D Mark IV</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-01T19:19:16.672Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>16</id>
+          <orderItems>
+            <cameraID>1</cameraID>
+            <cameraName>Canon EOS-1D Mark IV</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-01T19:19:26.724Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>17</id>
+          <orderItems>
+            <cameraID>1</cameraID>
+            <cameraName>Canon EOS-1D Mark IV</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-01T19:55:25.810Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>19</id>
+          <orderItems>
+            <cameraID>1</cameraID>
+            <cameraName>Canon EOS-1D Mark IV</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-01T20:16:51.543Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>24</id>
+          <orderItems>
+            <cameraID>9</cameraID>
+            <cameraName>Casio Exilim EX-Z280</cameraName>
+            <price>2696.24</price>
+            <qtd>2</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-02T01:53:49.239Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>25</id>
+          <orderItems>
+            <cameraID>9</cameraID>
+            <cameraName>Casio Exilim EX-Z280</cameraName>
+            <price>2696.24</price>
+            <qtd>2</qtd>
+          </orderItems>
+          <status>1</status>
+          <time>2009-11-02T02:01:21.205Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>29</id>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>2</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>9</cameraID>
+            <cameraName>Casio Exilim EX-Z280</cameraName>
+            <price>2696.24</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <status>2</status>
+          <time>2009-11-02T02:38:28.461Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>33</id>
+          <orderItems>
+            <cameraID>9</cameraID>
+            <cameraName>Casio Exilim EX-Z280</cameraName>
+            <price>2696.24</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <status>2</status>
+          <time>2009-11-02T02:56:05.318Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>34</id>
+          <orderItems>
+            <cameraID>10</cameraID>
+            <cameraName>Ricoh CX2</cameraName>
+            <price>2650.33</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>7</cameraID>
+            <cameraName>AgfaPhoto DC-600uw</cameraName>
+            <price>626.79</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>1</cameraID>
+            <cameraName>Canon EOS-1D Mark IV</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <status>2</status>
+          <time>2009-11-02T03:41:37.069Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>35</id>
+          <status>2</status>
+          <time>2009-11-02T03:42:42.793Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>43</id>
+          <orderItems>
+            <cameraID>4</cameraID>
+            <cameraName>Nikon D3S</cameraName>
+            <price>0.0</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>9</cameraID>
+            <cameraName>Casio Exilim EX-Z280</cameraName>
+            <price>2696.24</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <orderItems>
+            <cameraID>10</cameraID>
+            <cameraName>Ricoh CX2</cameraName>
+            <price>2650.33</price>
+            <qtd>1</qtd>
+          </orderItems>
+          <status>2</status>
+          <time>2009-11-02T05:02:27.949Z</time>
+        </Orders>
+        <Orders xmlns:msgns="www.ordersmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns2="www.ordersmanagerws.com">
+          <id>44</id>
+          <orderItems>
+            <cameraID>10</cameraID>
+            <cameraName>Ricoh CX2</cameraName>
+            <price>2650.33</price>
+            <qtd>3</qtd>
+          </orderItems>
+          <status>2</status>
+          <time>2009-11-02T05:05:18.964Z</time>
+        </Orders>
+      </GetOrdersOfUserOperationResponse>
+    </m:GetOrdersOfUserOperationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

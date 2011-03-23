@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="SearchCamera"
+    targetNamespace="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+    <import namespace="http://enterprise.netbeans.org/bpel/CameraSearchWrapper" location="CameraSearchWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="www.camerasupplierws.com" location="../127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/CatalogManagerWrapper" location="CatalogManagerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="www.catalogmanagerws.com" location="../127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" location="ProcessOrchestratorCatalogManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="POCatalogManagerPL" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" partnerLinkType="tns:SearchCameraPartnerLink" myRole="SearchCameraPortTypeRole"/>
+        <partnerLink name="CameraSearchPL" xmlns:tns="http://enterprise.netbeans.org/bpel/CameraSearchWrapper" partnerLinkType="tns:CameraSearchLinkType" partnerRole="CameraSearchRole"/>
+        <partnerLink name="CatalogManagerPL" xmlns:tns="http://enterprise.netbeans.org/bpel/CatalogManagerWrapper" partnerLinkType="tns:CatalogManagerLinkType" partnerRole="CatalogManagerRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="CameraNotFoundFaultVar" messageType="ns0:SearchCameraOperationFault"/>
+        <variable name="SearchCameraOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" messageType="tns:SearchCameraOperationResponse"/>
+        <variable name="AddSearchedCameraOut" xmlns:tns="www.catalogmanagerws.com" messageType="tns:CatalogManager_addSearchedCameraResponse"/>
+        <variable name="AddSearchedCameraIn" xmlns:tns="www.catalogmanagerws.com" messageType="tns:CatalogManager_addSearchedCamera"/>
+        <variable name="SearchCameraOut" xmlns:tns="www.camerasupplierws.com" messageType="tns:CameraSearch_searchCameraResponse"/>
+        <variable name="SearchCameraIn" xmlns:tns="www.camerasupplierws.com" messageType="tns:CameraSearch_searchCamera"/>
+        <variable name="SearchCameraOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" messageType="tns:SearchCameraOperationRequest"/>
+    </variables>
+    <faultHandlers>
+        <catch faultName="ns0:CameraNotFound" faultMessageType="ns0:SearchCameraOperationFault" faultVariable="CameraNotFoundVar">
+            <reply name="Reply2" partnerLink="POCatalogManagerPL" operation="SearchCameraOperation" portType="ns0:SearchCameraPortType" faultName="ns0:CameraNotFound" variable="CameraNotFoundFaultVar"/>
+        </catch>
+    </faultHandlers>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="POCatalogManagerPL" operation="SearchCameraOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" portType="tns:SearchCameraPortType" variable="SearchCameraOperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from>$SearchCameraOperationIn.CameraName</from>
+                <to>$SearchCameraIn.searchCamera/arg0</to>
+            </copy>      
+        </assign>
+        <invoke name="Invoke1" partnerLink="CameraSearchPL" operation="searchCamera" xmlns:tns="www.camerasupplierws.com" portType="tns:CameraSearch" inputVariable="SearchCameraIn" outputVariable="SearchCameraOut"/>
+        <if name="If1">
+            <condition>count($SearchCameraOut.searchCameraResponse/return) &gt; 0</condition>
+            <sequence name="Sequence1">
+                <assign name="Assign2">
+                    <copy>
+                        <from>$SearchCameraOut.searchCameraResponse/return</from>
+                            <to>$AddSearchedCameraIn.addSearchedCamera/arg0</to>
+                    </copy>
+                </assign>
+                <invoke name="Invoke2" partnerLink="CatalogManagerPL" operation="addSearchedCamera" xmlns:tns="www.catalogmanagerws.com" portType="tns:CatalogManager" inputVariable="AddSearchedCameraIn" outputVariable="AddSearchedCameraOut"/>
+                <assign name="Assign3">
+                    <copy>
+                            <from>$AddSearchedCameraOut.addSearchedCameraResponse/return</from>
+                            <to>$SearchCameraOperationOut.SearchCameraOperationResponse/Camera</to>
+                        </copy>
+                </assign>
+            </sequence>
+            <else>
+                <sequence name="Sequence2">
+                    <assign name="Assign4">
+                        <copy>
+                            <from>concat('No camera was found with the string ', $SearchCameraOperationIn.CameraName)</from>
+                            <to>$CameraNotFoundFaultVar.SearchCameraOperationFault/message</to>
+                        </copy>
+                    </assign>
+                    <throw name="ThrowException" faultName="ns0:CameraNotFound" faultVariable="CameraNotFoundFaultVar"/>
+                </sequence>
+            </else>
+        </if>
+        <reply name="Reply1" partnerLink="POCatalogManagerPL" operation="SearchCameraOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" portType="tns:SearchCameraPortType" variable="SearchCameraOperationOut"/>
+    </sequence>
+</process>

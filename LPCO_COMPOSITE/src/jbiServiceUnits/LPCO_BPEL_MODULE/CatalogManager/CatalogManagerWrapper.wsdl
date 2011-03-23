@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CatalogManagerWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/CatalogManagerWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/CatalogManagerWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="www.catalogmanagerws.com">
+    <import location="../127.0.0.1_8080/IS-TP2-EJB/CatalogManager.wsdl" namespace="www.catalogmanagerws.com"/>
+    <plnk:partnerLinkType name="CatalogManagerLinkType">
+        <plnk:role name="CatalogManagerRole" portType="ns:CatalogManager"/>
+    </plnk:partnerLinkType>
+</definitions>

@@ -1,0 +1,158 @@
+<definitions name='OrdersManagerService' targetNamespace='www.ordersmanagerws.com' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='www.shippingdepartmentws.com' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='www.ordersmanagerws.com' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='www.shippingdepartmentws.com' version='1.0' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:complexType name='order'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='cameras' nillable='true' type='xs:string'/>
+     <xs:element minOccurs='0' name='clientAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='clientName' type='xs:string'/>
+     <xs:element name='orderID' type='xs:int'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='quantities' nillable='true' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  <xs:schema targetNamespace='www.ordersmanagerws.com' version='1.0' xmlns:ns1='www.shippingdepartmentws.com' xmlns:tns='www.ordersmanagerws.com' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:import namespace='www.shippingdepartmentws.com'/>
+   <xs:element name='CreditCardException' type='tns:CreditCardException'/>
+   <xs:element name='checkOut' type='tns:checkOut'/>
+   <xs:element name='checkOutResponse' type='tns:checkOutResponse'/>
+   <xs:element name='getOrdersOfUser' type='tns:getOrdersOfUser'/>
+   <xs:element name='getOrdersOfUserResponse' type='tns:getOrdersOfUserResponse'/>
+   <xs:element name='orderReady' type='tns:orderReady'/>
+   <xs:element name='orderReadyResponse' type='tns:orderReadyResponse'/>
+   <xs:complexType name='checkOut'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='tns:cart'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='cart'>
+    <xs:sequence>
+     <xs:element name='clientID' type='xs:int'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='orderItems' nillable='true' type='tns:orderItem'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='orderItem'>
+    <xs:sequence>
+     <xs:element name='cameraID' type='xs:int'/>
+     <xs:element minOccurs='0' name='cameraName' type='xs:string'/>
+     <xs:element name='price' type='xs:float'/>
+     <xs:element name='qtd' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='checkOutResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='ns1:order'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='CreditCardException'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='message' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='getOrdersOfUser'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='getOrdersOfUserResponse'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='return' type='tns:order'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='order'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='deliveringDays' type='xs:int'/>
+     <xs:element minOccurs='0' name='id' type='xs:int'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='orderItems' nillable='true' type='tns:orderItem'/>
+     <xs:element minOccurs='0' name='status' type='xs:int'/>
+     <xs:element minOccurs='0' name='time' type='xs:dateTime'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='orderReady'>
+    <xs:sequence>
+     <xs:element name='arg0' type='xs:int'/>
+     <xs:element name='arg1' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='orderReadyResponse'>
+    <xs:sequence>
+     <xs:element name='return' type='xs:boolean'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='OrdersManager_getOrdersOfUser'>
+  <part element='tns:getOrdersOfUser' name='getOrdersOfUser'></part>
+ </message>
+ <message name='OrdersManager_orderReadyResponse'>
+  <part element='tns:orderReadyResponse' name='orderReadyResponse'></part>
+ </message>
+ <message name='OrdersManager_orderReady'>
+  <part element='tns:orderReady' name='orderReady'></part>
+ </message>
+ <message name='OrdersManager_getOrdersOfUserResponse'>
+  <part element='tns:getOrdersOfUserResponse' name='getOrdersOfUserResponse'></part>
+ </message>
+ <message name='OrdersManager_checkOut'>
+  <part element='tns:checkOut' name='checkOut'></part>
+ </message>
+ <message name='CreditCardException'>
+  <part element='tns:CreditCardException' name='CreditCardException'></part>
+ </message>
+ <message name='OrdersManager_checkOutResponse'>
+  <part element='tns:checkOutResponse' name='checkOutResponse'></part>
+ </message>
+ <portType name='OrdersManager'>
+  <operation name='checkOut' parameterOrder='checkOut'>
+   <input message='tns:OrdersManager_checkOut'></input>
+   <output message='tns:OrdersManager_checkOutResponse'></output>
+   <fault message='tns:CreditCardException' name='CreditCardException'></fault>
+  </operation>
+  <operation name='getOrdersOfUser' parameterOrder='getOrdersOfUser'>
+   <input message='tns:OrdersManager_getOrdersOfUser'></input>
+   <output message='tns:OrdersManager_getOrdersOfUserResponse'></output>
+  </operation>
+  <operation name='orderReady' parameterOrder='orderReady'>
+   <input message='tns:OrdersManager_orderReady'></input>
+   <output message='tns:OrdersManager_orderReadyResponse'></output>
+  </operation>
+ </portType>
+ <binding name='OrdersManagerBinding' type='tns:OrdersManager'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='checkOut'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='CreditCardException'>
+    <soap:fault name='CreditCardException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='getOrdersOfUser'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='orderReady'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='OrdersManagerService'>
+  <port binding='tns:OrdersManagerBinding' name='OrdersManagerPort'>
+   <soap:address location='http://127.0.0.1:8080/IS-TP2-EJB/OrdersManager'/>
+  </port>
+ </service>
+</definitions>

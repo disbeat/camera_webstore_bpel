@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="OrderReady"
+    targetNamespace="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/OrderReady"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/OrderReady" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2">
+    <import namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" location="ProcessOrchestratorOrdersManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/OrdersManagerWrapper" location="OrdersManagerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="www.ordersmanagerws.com" location="../127.0.0.1_8080/IS-TP2-EJB/OrdersManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="OrdersManagerPL" xmlns:tns="http://enterprise.netbeans.org/bpel/OrdersManagerWrapper" partnerLinkType="tns:OrdersManagerLinkType" partnerRole="OrdersManagerRole"/>
+        <partnerLink name="POOrdersManagerPL" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" partnerLinkType="tns:OrderReadyPartnerLink" myRole="OrderReadyPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="OrderReadyOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" messageType="tns:OrderReadyOperationResponse"/>
+        <variable name="OrderReadyOut" xmlns:tns="www.ordersmanagerws.com" messageType="tns:OrdersManager_orderReadyResponse"/>
+        <variable name="OrderReadyIn" xmlns:tns="www.ordersmanagerws.com" messageType="tns:OrdersManager_orderReady"/>
+        <variable name="OrderReadyOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" messageType="tns:OrderReadyOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="POOrdersManagerPL" operation="OrderReadyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" portType="tns:OrderReadyPortType" variable="OrderReadyOperationIn"/>
+        <assign name="Assign3">
+            <copy>
+                <from variable="OrderReadyOperationIn" part="orderID"/>
+                <to>$OrderReadyIn.orderReady/arg0</to>
+            </copy>
+            <copy>
+                <from variable="OrderReadyOperationIn" part="deliveringDays"/>
+                <to>$OrderReadyIn.orderReady/arg1</to>
+            </copy>
+        </assign>
+        <invoke name="Invoke1" partnerLink="OrdersManagerPL" operation="orderReady" xmlns:tns="www.ordersmanagerws.com" portType="tns:OrdersManager" inputVariable="OrderReadyIn" outputVariable="OrderReadyOut"/>
+        <assign name="Assign2">
+            <copy>
+                <from>$OrderReadyOut.orderReadyResponse/return</from>
+                <to variable="OrderReadyOperationOut" part="NotificationSent"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="POOrdersManagerPL" operation="OrderReadyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" portType="tns:OrderReadyPortType" variable="OrderReadyOperationOut"/>
+    </sequence>
+</process>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="AddUser"
+    targetNamespace="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/AddUser"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/AddUser" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2">
+    
+    <import namespace="http://enterprise.netbeans.org/bpel/UserManagerWrapper" location="UserManagerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" location="ProcessOrquestratorUserManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="www.usermanagerws.com" location="../127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="POUserManagerPL" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" partnerLinkType="tns:AddUserPartnerLink" myRole="AddUserPortTypeRole"/>
+        <partnerLink name="UserManagerPL" xmlns:tns="http://enterprise.netbeans.org/bpel/UserManagerWrapper" partnerLinkType="tns:UserManagerLinkType" partnerRole="UserManagerRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="AddUserOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" messageType="tns:AddUserOperationResponse"/>
+        <variable name="AddUserOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" messageType="tns:AddUserOperationRequest"/>
+        <variable name="AddUserOut" xmlns:tns="www.usermanagerws.com" messageType="tns:UserManager_addUserResponse"/>
+        <variable name="AddUserIn" xmlns:tns="www.usermanagerws.com" messageType="tns:UserManager_addUser"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="POUserManagerPL" operation="AddUserOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" portType="tns:AddUserPortType" variable="AddUserOperationIn"/>
+        <assign name="Assign3">
+            <copy>
+                <from variable="AddUserOperationIn" part="username"/>
+                <to>$AddUserIn.addUser/arg0</to>
+            </copy>
+            <copy>
+                <from variable="AddUserOperationIn" part="password"/>
+                <to>$AddUserIn.addUser/arg1</to>
+            </copy>
+            <copy>
+                <from variable="AddUserOperationIn" part="email"/>
+                <to>$AddUserIn.addUser/arg2</to>
+            </copy>
+            <copy>
+                <from variable="AddUserOperationIn" part="address"/>
+                <to>$AddUserIn.addUser/arg3</to>
+            </copy>
+        </assign>
+        <invoke name="Invoke1" partnerLink="UserManagerPL" operation="addUser" xmlns:tns="www.usermanagerws.com" portType="tns:UserManager" inputVariable="AddUserIn" outputVariable="AddUserOut"/>
+        <assign name="Assign2">
+            <copy>
+                <from variable="AddUserOut" part="addUserResponse"/>
+                <to variable="AddUserOperationOut" part="AddUserOperationResponse"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="POUserManagerPL" operation="AddUserOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" portType="tns:AddUserPortType" variable="AddUserOperationOut"/>
+    </sequence>
+</process>

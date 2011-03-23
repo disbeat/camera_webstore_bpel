@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:GetCameraOperationResponse xmlns:m="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+      <GetCameraOperationResponse xmlns="">
+        <GetCameraResponse xmlns:msgns="www.catalogmanagerws.com" xmlns:ns0="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" xmlns:ns2="www.catalogmanagerws.com" xmlns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+          <brand>nikon</brand>
+          <description>12.1 million effective pixels; 1.4 MP/cm^2 pixel density;</description>
+          <effectivePixels>12.1 million</effectivePixels>
+          <ISOrating>200 - 12800 in 1, 1/2 or 1/3 EV steps (100 - 102400 with boost), </ISOrating>
+          <idCamera>6</idCamera>
+          <imageRatio/>
+          <linkInDepthReview/>
+          <linkPicture>http://a.img-dpreview.com/reviews/images/nikon_d3s.gif</linkPicture>
+          <lowResolution>3 x 2, 5 x 4, 1 x 2</lowResolution>
+          <maxResolution/>
+          <maxShutter/>
+          <minShutter>1/8000 sec</minShutter>
+          <name>Nikon D3S</name>
+          <price>0.0</price>
+          <sensorSize>36.0 x 23.9 cm</sensorSize>
+          <summary/>
+        </GetCameraResponse>
+      </GetCameraOperationResponse>
+    </m:GetCameraOperationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

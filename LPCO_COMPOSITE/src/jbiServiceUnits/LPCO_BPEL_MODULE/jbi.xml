@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetAllBrands" xmlns:ns1="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" xmlns:ns10="www.shippingdepartmentws.com" xmlns:ns11="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetOrdersOfUser" xmlns:ns12="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/OrderReady" xmlns:ns13="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/AddUser" xmlns:ns14="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" xmlns:ns15="www.usermanagerws.com" xmlns:ns16="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/LoginUser" xmlns:ns17="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/UserExists" xmlns:ns18="http://www.sun.com/jbi/descriptor/service-unit" xmlns:ns2="www.catalogmanagerws.com" xmlns:ns3="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetCamera" xmlns:ns4="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/GetCameras" xmlns:ns5="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/SearchCamera" xmlns:ns6="www.camerasupplierws.com" xmlns:ns7="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/CheckOut" xmlns:ns8="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorOrdersManager" xmlns:ns9="www.ordersmanagerws.com" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="GetAllBrandsPortTypeRole_myRole" interface-name="ns1:GetAllBrandsPortType" service-name="ns0:POCatalogManagerPL">
+            <ns18:display-name>POCatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetAllBrands</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetAllBrands.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="GetCameraPortTypeRole_myRole" interface-name="ns1:GetCameraPortType" service-name="ns3:POCatalogManagerPL">
+            <ns18:display-name>POCatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetCamera</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetCamera.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="GetCamerasPortTypeRole_myRole" interface-name="ns1:GetCamerasPortType" service-name="ns4:POCatalogManagerPL">
+            <ns18:display-name>POCatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetCameras</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetCameras.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="SearchCameraPortTypeRole_myRole" interface-name="ns1:SearchCameraPortType" service-name="ns5:POCatalogManagerPL">
+            <ns18:display-name>POCatalogManagerPL</ns18:display-name>
+            <ns18:process-name>SearchCamera</ns18:process-name>
+            <ns18:file-path>CatalogManager\SearchCamera.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="CheckOutPortTypeRole_myRole" interface-name="ns8:CheckOutPortType" service-name="ns7:POOrdersManagerPL">
+            <ns18:display-name>POOrdersManagerPL</ns18:display-name>
+            <ns18:process-name>CheckOut</ns18:process-name>
+            <ns18:file-path>OrdersManager\CheckOut.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="GetOrdersOfUserPortTypeRole_myRole" interface-name="ns8:GetOrdersOfUserPortType" service-name="ns11:POOrdersManagerPL">
+            <ns18:display-name>POOrdersManagerPL</ns18:display-name>
+            <ns18:process-name>GetOrdersOfUser</ns18:process-name>
+            <ns18:file-path>OrdersManager\GetOrdersOfUser.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="OrderReadyPortTypeRole_myRole" interface-name="ns8:OrderReadyPortType" service-name="ns12:POOrdersManagerPL">
+            <ns18:display-name>POOrdersManagerPL</ns18:display-name>
+            <ns18:process-name>OrderReady</ns18:process-name>
+            <ns18:file-path>OrdersManager\OrderReady.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="AddUserPortTypeRole_myRole" interface-name="ns14:AddUserPortType" service-name="ns13:POUserManagerPL">
+            <ns18:display-name>POUserManagerPL</ns18:display-name>
+            <ns18:process-name>AddUser</ns18:process-name>
+            <ns18:file-path>UserManager\AddUser.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="LoginUserPortTypeRole_myRole" interface-name="ns14:LoginUserPortType" service-name="ns16:POUserManagerPL">
+            <ns18:display-name>POUserManagerPL</ns18:display-name>
+            <ns18:process-name>LoginUser</ns18:process-name>
+            <ns18:file-path>UserManager\LoginUser.bpel</ns18:file-path>
+        </provides>
+        <provides endpoint-name="UserExistsPortTypeRole_myRole" interface-name="ns14:UserExistsPortType" service-name="ns17:POUserManagerPL">
+            <ns18:display-name>POUserManagerPL</ns18:display-name>
+            <ns18:process-name>UserExists</ns18:process-name>
+            <ns18:file-path>UserManager\UserExists.bpel</ns18:file-path>
+        </provides>
+        <consumes endpoint-name="CatalogManagerRole_partnerRole" interface-name="ns2:CatalogManager" service-name="ns0:CatalogManagerPL">
+            <ns18:display-name>CatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetAllBrands</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetAllBrands.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="CatalogManagerRole_partnerRole" interface-name="ns2:CatalogManager" service-name="ns3:CatalogManagerPL">
+            <ns18:display-name>CatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetCamera</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetCamera.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="CatalogManagerRole_partnerRole" interface-name="ns2:CatalogManager" service-name="ns4:CatalogManagerPL">
+            <ns18:display-name>CatalogManagerPL</ns18:display-name>
+            <ns18:process-name>GetCameras</ns18:process-name>
+            <ns18:file-path>CatalogManager\GetCameras.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="CameraSearchRole_partnerRole" interface-name="ns6:CameraSearch" service-name="ns5:CameraSearchPL">
+            <ns18:display-name>CameraSearchPL</ns18:display-name>
+            <ns18:process-name>SearchCamera</ns18:process-name>
+            <ns18:file-path>CatalogManager\SearchCamera.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="CatalogManagerRole_partnerRole" interface-name="ns2:CatalogManager" service-name="ns5:CatalogManagerPL">
+            <ns18:display-name>CatalogManagerPL</ns18:display-name>
+            <ns18:process-name>SearchCamera</ns18:process-name>
+            <ns18:file-path>CatalogManager\SearchCamera.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="OrdersManagerRole_partnerRole" interface-name="ns9:OrdersManager" service-name="ns7:OrdersManagerPL">
+            <ns18:display-name>OrdersManagerPL</ns18:display-name>
+            <ns18:process-name>CheckOut</ns18:process-name>
+            <ns18:file-path>OrdersManager\CheckOut.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="ShippingBeanRole_partnerRole" interface-name="ns10:ShippingBean" service-name="ns7:ShippingBeanPL">
+            <ns18:display-name>ShippingBeanPL</ns18:display-name>
+            <ns18:process-name>CheckOut</ns18:process-name>
+            <ns18:file-path>OrdersManager\CheckOut.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="OrdersManagerRole_partnerRole" interface-name="ns9:OrdersManager" service-name="ns11:OrdersManagerPL">
+            <ns18:display-name>OrdersManagerPL</ns18:display-name>
+            <ns18:process-name>GetOrdersOfUser</ns18:process-name>
+            <ns18:file-path>OrdersManager\GetOrdersOfUser.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="OrdersManagerRole_partnerRole" interface-name="ns9:OrdersManager" service-name="ns12:OrdersManagerPL">
+            <ns18:display-name>OrdersManagerPL</ns18:display-name>
+            <ns18:process-name>OrderReady</ns18:process-name>
+            <ns18:file-path>OrdersManager\OrderReady.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="UserManagerRole_partnerRole" interface-name="ns15:UserManager" service-name="ns13:UserManagerPL">
+            <ns18:display-name>UserManagerPL</ns18:display-name>
+            <ns18:process-name>AddUser</ns18:process-name>
+            <ns18:file-path>UserManager\AddUser.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="UserManagerRole_partnerRole" interface-name="ns15:UserManager" service-name="ns16:UserManagerPL">
+            <ns18:display-name>UserManagerPL</ns18:display-name>
+            <ns18:process-name>LoginUser</ns18:process-name>
+            <ns18:file-path>UserManager\LoginUser.bpel</ns18:file-path>
+        </consumes>
+        <consumes endpoint-name="UserManagerRole_partnerRole" interface-name="ns15:UserManager" service-name="ns17:UserManagerPL">
+            <ns18:display-name>UserManagerPL</ns18:display-name>
+            <ns18:process-name>UserExists</ns18:process-name>
+            <ns18:file-path>UserManager\UserExists.bpel</ns18:file-path>
+        </consumes>
+    </services>
+</jbi>

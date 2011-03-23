@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="UserExists"
+    targetNamespace="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/UserExists"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/LPCO_BPEL_MODULE/UserExists" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2">
+
+   <import namespace="http://enterprise.netbeans.org/bpel/UserManagerWrapper" location="UserManagerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" location="ProcessOrquestratorUserManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="www.usermanagerws.com" location="../127.0.0.1_8080/IS-TP2-EJB/UserManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="POUserManagerPL" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" partnerLinkType="tns:UserExistsPartnerLink" myRole="UserExistsPortTypeRole"/>
+        <partnerLink name="UserManagerPL" xmlns:tns="http://enterprise.netbeans.org/bpel/UserManagerWrapper" partnerLinkType="tns:UserManagerLinkType" partnerRole="UserManagerRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="UserExistsOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" messageType="tns:UserExistsOperationResponse"/>
+        <variable name="UserExistsOut" xmlns:tns="www.usermanagerws.com" messageType="tns:UserManager_userExistsResponse"/>
+        <variable name="UserExistsIn" xmlns:tns="www.usermanagerws.com" messageType="tns:UserManager_userExists"/>
+        <variable name="UserExistsOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" messageType="tns:UserExistsOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="POUserManagerPL" operation="UserExistsOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" portType="tns:UserExistsPortType" variable="UserExistsOperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from variable="UserExistsOperationIn" part="username"/>
+                <to>$UserExistsIn.userExists/arg0</to>
+            </copy>
+        </assign>
+        <invoke name="Invoke1" partnerLink="UserManagerPL" operation="userExists" xmlns:tns="www.usermanagerws.com" portType="tns:UserManager" inputVariable="UserExistsIn" outputVariable="UserExistsOut"/>
+        <assign name="Assign2">
+            <copy>
+                <from>$UserExistsOut.userExistsResponse/return</from>
+                <to>$UserExistsOperationOut.UserExistsOperationResponse/UserExistsResponse</to>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="POUserManagerPL" operation="UserExistsOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrquestratorUserManager" portType="tns:UserExistsPortType" variable="UserExistsOperationOut"/>
+    </sequence>
+</process>

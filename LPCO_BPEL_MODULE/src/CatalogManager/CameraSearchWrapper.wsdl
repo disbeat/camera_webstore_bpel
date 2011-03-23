@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CameraSearchWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/CameraSearchWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/CameraSearchWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="www.camerasupplierws.com">
+    <import location="../127.0.0.1_8080/CameraSupplierWS/CameraSearch.wsdl" namespace="www.camerasupplierws.com"/>
+    <plnk:partnerLinkType name="CameraSearchLinkType">
+        <plnk:role name="CameraSearchRole" portType="ns:CameraSearch"/>
+    </plnk:partnerLinkType>
+</definitions>

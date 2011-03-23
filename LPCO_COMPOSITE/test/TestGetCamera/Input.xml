@@ -1,0 +1,11 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+  <soapenv:Body>
+    <proc:GetCameraOperation>
+      <GetCameraOperationRequest>
+        <proc:GetCameraRequest>
+          <CameraID>600</CameraID>
+        </proc:GetCameraRequest>
+      </GetCameraOperationRequest>
+    </proc:GetCameraOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

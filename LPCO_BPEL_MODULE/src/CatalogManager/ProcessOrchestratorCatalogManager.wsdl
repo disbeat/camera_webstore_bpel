@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ProcessOrchestratorCatalogManager" targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager">
+           
+            <xsd:complexType name="GetAllBrandsRequestType">
+                <xsd:sequence>             
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name='camera'>
+                <xsd:sequence>
+                    <xsd:element minOccurs='0' name='brand' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='description' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='effectivePixels' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='ISOrating' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='idCamera' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='imageRatio' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='linkInDepthReview' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='linkPicture' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='lowResolution' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='maxResolution' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='maxShutter' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='minShutter' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='name' type='xsd:string'/>
+                    <xsd:element name='price' type='xsd:float'/>
+                    <xsd:element minOccurs='0' name='sensorSize' type='xsd:string'/>
+                    <xsd:element minOccurs='0' name='summary' type='xsd:string'/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="GetCameraResponse" type="tns:camera"></xsd:element>
+            <xsd:complexType name="BrandList">
+                <xsd:sequence>
+                    <xsd:element name="Brand" type="xsd:string" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="GetAllBrandsResponse" type="tns:BrandList"></xsd:element>
+            <xsd:complexType name="CamerasList">
+                <xsd:sequence>
+                    <xsd:element name="Cameras" type="tns:camera" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="GetCamerasResponse" type="tns:CamerasList"></xsd:element>
+            <xsd:complexType name="SearchCameraResponse">
+                <xsd:sequence>
+                    <xsd:element name="Camera" type="tns:camera" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="SearchCameraResponse" type="tns:SearchCameraResponse"></xsd:element>
+            <xsd:complexType name="ErrorMessage">
+                <xsd:sequence>
+                    <xsd:element name="message" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="ErrorMessage" type="tns:ErrorMessage"></xsd:element>
+            <xsd:element name="NoCamerasFoundExceptionMessage" type="xsd:string"></xsd:element>
+            <xsd:element name="NoBrandsFoundException" type="xsd:string"></xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="GetCameraOperationRequest">
+        <part name="cameraID" type="xsd:int"/>
+    </message>
+    <message name="GetCameraOperationResponse">
+        <part name="GetCameraOperationResponse" type="tns:camera"/>
+    </message>
+    <message name="GetAllBrandsOperationRequest">
+        <part name="GetAllBrandsOperationRequest" type="tns:GetAllBrandsRequestType" />
+    </message>
+    <message name="GetAllBrandsOperationResponse">
+        <part name="GetAllBrandsOperationResponse" type="tns:BrandList"/>
+    </message>
+    <message name="GetCamerasOperationRequest">
+        <part name="BrandName" type="xsd:string"/>
+    </message>
+    <message name="GetCamerasOperationResponse">
+        <part name="GetCamerasOperationResponse" type="tns:CamerasList"/>
+    </message>
+    <message name="SearchCameraOperationRequest">
+        <part name="CameraName" type="xsd:string"/>
+    </message>
+    <message name="SearchCameraOperationResponse">
+        <part name="SearchCameraOperationResponse" type="tns:SearchCameraResponse"/>
+    </message>
+    <message name="SearchCameraOperationFault">
+        <part name="SearchCameraOperationFault" element="tns:ErrorMessage"/>
+    </message>
+    <message name="GetCamerasOperationFault">
+        <part name="NoCamerasFoundException" element="tns:NoCamerasFoundExceptionMessage"/>
+    </message>
+    <message name="GetAllBrandsOperationFault">
+        <part name="NoBrandsFoundException" element="tns:NoBrandsFoundException"/>
+    </message>
+    <portType name="GetCameraPortType">
+        <operation name="GetCameraOperation">
+            <input name="input1" message="tns:GetCameraOperationRequest"/>
+            <output name="output1" message="tns:GetCameraOperationResponse"/>
+        </operation>
+    </portType>
+    <portType name="GetAllBrandsPortType">
+        <operation name="GetAllBrandsOperation">
+            <input name="input1" message="tns:GetAllBrandsOperationRequest"/>
+            <output name="output1" message="tns:GetAllBrandsOperationResponse"/>
+            <fault name="fault1" message="tns:GetAllBrandsOperationFault"/>
+        </operation>
+    </portType>
+    <portType name="GetCamerasPortType">
+        <operation name="GetCamerasOperation">
+            <input name="input1" message="tns:GetCamerasOperationRequest"/>
+            <output name="output1" message="tns:GetCamerasOperationResponse"/>
+            <fault name="fault1" message="tns:GetCamerasOperationFault"/>
+        </operation>
+    </portType>
+    <portType name="SearchCameraPortType">
+        <operation name="SearchCameraOperation">
+            <input name="input1" message="tns:SearchCameraOperationRequest"/>
+            <output name="output1" message="tns:SearchCameraOperationResponse"/>
+            <fault name="CameraNotFound" message="tns:SearchCameraOperationFault"/>
+        </operation>
+    </portType>
+    <binding name="GetCameraBinding" type="tns:GetCameraPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetCameraOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="GetAllBrandsBinding" type="tns:GetAllBrandsPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetAllBrandsOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1"/>
+            </fault>
+        </operation>
+    </binding>
+    <binding name="GetCamerasBinding" type="tns:GetCamerasPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetCamerasOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1"/>
+            </fault>
+        </operation>
+    </binding>
+    <binding name="SearchCameraBinding" type="tns:SearchCameraPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="SearchCameraOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/LPCO_BPEL_MODULE/ProcessOrchestratorCatalogManager"/>
+            </output>
+            <fault name="CameraNotFound">
+                <soap:fault name="CameraNotFound" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="ProcessOrchestratorCatalogManagerService">
+        <port name="GetCameraPort" binding="tns:GetCameraBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorCatalogManagerService/GetCameraPort"/>
+        </port>
+        <port name="GetAllBrandsPort" binding="tns:GetAllBrandsBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorCatalogManagerService/GetAllBrandsPort"/>
+        </port>
+        <port name="GetCamerasPort" binding="tns:GetCamerasBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorCatalogManagerService/GetCamerasPort"/>
+        </port>
+        <port name="SearchCameraPort" binding="tns:SearchCameraBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ProcessOrchestratorCatalogManagerService/SearchCameraPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="GetCameraPartnerLink">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="GetCameraPortTypeRole" portType="tns:GetCameraPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="GetAllBrandsPartnerLink">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="GetAllBrandsPortTypeRole" portType="tns:GetAllBrandsPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="GetCamerasPartnerLink">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="GetCamerasPortTypeRole" portType="tns:GetCamerasPortType"/>
+    </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="SearchCameraPartnerLink">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="SearchCameraPortTypeRole" portType="tns:SearchCameraPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
+

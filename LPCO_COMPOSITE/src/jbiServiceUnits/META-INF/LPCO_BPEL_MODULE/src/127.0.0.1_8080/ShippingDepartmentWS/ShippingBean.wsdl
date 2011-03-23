@@ -1,0 +1,54 @@
+<definitions name='ShippingBeanService' targetNamespace='www.shippingdepartmentws.com' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='www.shippingdepartmentws.com' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='www.shippingdepartmentws.com' version='1.0' xmlns:tns='www.shippingdepartmentws.com' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='shipOrder' type='tns:shipOrder'/>
+   <xs:element name='shipOrderResponse' type='tns:shipOrderResponse'/>
+   <xs:complexType name='shipOrder'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='tns:order'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='order'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='cameras' nillable='true' type='xs:string'/>
+     <xs:element minOccurs='0' name='clientAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='clientName' type='xs:string'/>
+     <xs:element name='orderID' type='xs:int'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='quantities' nillable='true' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shipOrderResponse'>
+    <xs:sequence/>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='ShippingBean_shipOrderResponse'>
+  <part element='tns:shipOrderResponse' name='shipOrderResponse'></part>
+ </message>
+ <message name='ShippingBean_shipOrder'>
+  <part element='tns:shipOrder' name='shipOrder'></part>
+ </message>
+ <portType name='ShippingBean'>
+  <operation name='shipOrder' parameterOrder='shipOrder'>
+   <input message='tns:ShippingBean_shipOrder'></input>
+   <output message='tns:ShippingBean_shipOrderResponse'></output>
+  </operation>
+ </portType>
+ <binding name='ShippingBeanBinding' type='tns:ShippingBean'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='shipOrder'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='ShippingBeanService'>
+  <port binding='tns:ShippingBeanBinding' name='ShippingBeanPort'>
+   <soap:address location='http://127.0.0.1:8080/ShippingDepartmentWS/ShippingBean'/>
+  </port>
+ </service>
+</definitions>
